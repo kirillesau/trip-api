@@ -24,7 +24,7 @@ public class TripController {
     @GetMapping("/trips/{id}")
     @ResponseStatus(OK)
     public Trip getTrip(@PathVariable long id) {
-       return tripService.getTrip(id);
+        return tripService.getTrip(id);
     }
 
     @GetMapping("/trips")
@@ -32,6 +32,5 @@ public class TripController {
     public List<Trip> getTrip() {
         return tripService.getAllTrips();
     }
-
 
 }

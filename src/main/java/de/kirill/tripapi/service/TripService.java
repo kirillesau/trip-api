@@ -1,24 +1,23 @@
 package de.kirill.tripapi.service;
 
 import de.kirill.tripapi.Trip;
+import de.kirill.tripapi.TripRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class TripService {
 
+    private TripRepository tripRepository;
+
     public Trip getTrip(long id) {
-        Trip trip = new Trip();
-        trip.setId(id);
-        return trip;
+        return tripRepository.findById(id).orElseThrow(() -> new RuntimeException("Trip not found"));
     }
 
     public List<Trip> getAllTrips() {
-        var trip1 = new Trip();
-        trip1.setId(1L);
-        var trip2 = new Trip();
-        trip2.setId(2L);
-        return List.of(trip1, trip2);
+        return tripRepository.findAll();
     }
 }

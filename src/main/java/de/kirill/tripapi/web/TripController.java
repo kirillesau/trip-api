@@ -14,7 +14,6 @@ import static org.springframework.http.HttpStatus.OK;
 @RestController
 public class TripController {
 
-
     private final TripService tripService;
 
     public TripController(TripService tripService) {

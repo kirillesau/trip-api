@@ -1,6 +1,7 @@
 package de.kirill.tripapi.web;
 
 import de.kirill.tripapi.Trip;
+import de.kirill.tripapi.TripType;
 import de.kirill.tripapi.service.TripService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,16 +28,25 @@ public class TripControllerTest {
 
     @Test
     void getTrip() throws Exception {
-        given(tripService.getTrip(anyLong())).willReturn(new Trip(1L, "Trip 1", false, "", "", "", "", "", null, 0.0, false));
+        given(tripService.getTrip(anyLong())).willReturn(new Trip(1L, "Trip 1", false, new TripType(1, "test type"), "", "", "", "", null, 0.0, false));
         mockMvc.perform(get("/trips/1"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("id").value("1"));
+                .andExpect(jsonPath("id").value("1"))
+                .andExpect(jsonPath("type.id").value("1"))
+                .andExpect(jsonPath("type.name").value("test type"));
     }
 
     @Test
     void listAllTrips() throws Exception {
         mockMvc.perform(get("/trips"))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void listAllTripTypes() throws Exception {
+        mockMvc.perform(get("/trip-types"))
                 .andDo(print())
                 .andExpect(status().isOk());
     }

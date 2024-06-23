@@ -31,5 +31,11 @@ public class TripController {
     public List<Trip> getTrip() {
         return tripService.getAllTrips();
     }
+    @GetMapping("/trip-types")
+    @ResponseStatus(OK)
+    public List<Trip> getTripTypes() {
+        return tripService.getAllTripTypes();
+    }
+
 
 }

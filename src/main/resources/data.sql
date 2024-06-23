@@ -1,4 +1,10 @@
-insert into TRIP (ID, NAME, HALF_PRICE, TYPE, LINK, DESCRIPTION, PERFORMANCE, ADDITIONAL_INFO, VALID_DATE, PRICE, TAKEN)
-values (1, 'Trip 1', false, '', '', '', '', '', null, 0.0, false);
-insert into TRIP (ID, NAME, HALF_PRICE, TYPE, LINK, DESCRIPTION, PERFORMANCE, ADDITIONAL_INFO, VALID_DATE, PRICE, TAKEN)
-values (2, 'Trip 2', false, '', '', '', '', '', null, 0.0, false);
+-- Insert into TRIP_TYPE
+INSERT INTO TRIP_TYPE (ID, NAME) VALUES (1, 'Type 1');
+INSERT INTO TRIP_TYPE (ID, NAME) VALUES (2, 'Type 2');
+
+-- Insert into TRIP
+INSERT INTO TRIP (ID, NAME, HALF_PRICE, TYPE_ID, LINK, DESCRIPTION, PERFORMANCE, ADDITIONAL_INFO, VALID_DATE, PRICE, TAKEN)
+VALUES (1, 'Trip 1', false, 1, 'Link 1', 'Description 1', 'Performance 1', 'Additional Info 1', '2022-01-01', 100.0, false);
+
+INSERT INTO TRIP (ID, NAME, HALF_PRICE, TYPE_ID, LINK, DESCRIPTION, PERFORMANCE, ADDITIONAL_INFO, VALID_DATE, PRICE, TAKEN)
+VALUES (2, 'Trip 2', false, 2, 'Link 2', 'Description 2', 'Performance 2', 'Additional Info 2', '2022-02-02', 200.0, false);

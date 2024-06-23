@@ -1,8 +1,6 @@
 package de.kirill.tripapi;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +22,10 @@ public class Trip {
     private long id;
     private String name;
     private Boolean halfPrice = false;
-    private String type;
+
+    @OneToOne
+    @JoinColumn(name = "type_id", referencedColumnName = "id")
+    private TripType type;
     private String link;
     private String description;
     private String performance;

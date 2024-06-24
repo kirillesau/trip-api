@@ -21,7 +21,7 @@ public class Trip {
     @GeneratedValue(strategy = AUTO)
     private long id;
     private String name;
-    private Boolean halfPrice = false;
+    private int discount;
 
     @OneToOne
     @JoinColumn(name = "type_id", referencedColumnName = "id")

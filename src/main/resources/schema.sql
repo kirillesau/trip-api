@@ -2,15 +2,15 @@ drop table if exists TRIP;
 drop table if exists TRIP_TYPE;
 create table TRIP_TYPE
 (
-    ID   SERIAL PRIMARY KEY ,
+    ID   SERIAL PRIMARY KEY,
     NAME varchar(255) not null
 );
 
 create table TRIP
 (
-    ID              SERIAL PRIMARY KEY ,
+    ID              SERIAL PRIMARY KEY,
     NAME            varchar(255) not null,
-    HALF_PRICE      boolean default false,
+    DISCOUNT        integer default 0,
     TYPE_ID         integer      not null,
     LINK            varchar(255),
     DESCRIPTION     varchar(255),

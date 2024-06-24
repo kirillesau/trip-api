@@ -1,5 +1,6 @@
 package de.kirill.tripapi;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import static jakarta.persistence.GenerationType.AUTO;
 
@@ -32,5 +35,8 @@ public class Trip {
     private String additionalInfo;
     private Date validDate;
     private Double price;
-    private Boolean taken = false;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TripBooking> bookings = new ArrayList<>();
 }

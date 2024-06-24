@@ -1,3 +1,4 @@
+drop table if exists TRIP_BOOKING;
 drop table if exists TRIP;
 drop table if exists TRIP_TYPE;
 create table TRIP_TYPE
@@ -18,6 +19,13 @@ create table TRIP
     ADDITIONAL_INFO varchar(255),
     VALID_DATE      date,
     PRICE           double precision,
-    TAKEN           boolean default false,
     constraint FK_TRIP_TYPE foreign key (TYPE_ID) references TRIP_TYPE (ID)
+);
+
+create table TRIP_BOOKING
+(
+    ID           SERIAL PRIMARY KEY,
+    BOOKING_DATE date,
+    TRIP_ID      integer,
+    constraint FK_TRIP foreign key (TRIP_ID) references TRIP (ID)
 );

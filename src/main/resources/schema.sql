@@ -17,7 +17,7 @@ create table TRIP
     DESCRIPTION     varchar(255),
     PERFORMANCE     varchar(255),
     ADDITIONAL_INFO varchar(255),
-    VALID_DATE      date,
+    VALIDITY        varchar(255),
     PRICE           double precision,
     constraint FK_TRIP_TYPE foreign key (TYPE_ID) references TRIP_TYPE (ID)
 );

@@ -33,7 +33,7 @@ public class Trip {
     private String description;
     private String performance;
     private String additionalInfo;
-    private Date validDate;
+    private String validity;
     private Double price;
 
     @JsonManagedReference

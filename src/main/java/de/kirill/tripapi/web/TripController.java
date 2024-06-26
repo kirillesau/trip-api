@@ -1,6 +1,7 @@
 package de.kirill.tripapi.web;
 
 import de.kirill.tripapi.Trip;
+import de.kirill.tripapi.TripType;
 import de.kirill.tripapi.service.TripService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,7 +34,7 @@ public class TripController {
     }
     @GetMapping("/trip-types")
     @ResponseStatus(OK)
-    public List<Trip> getTripTypes() {
+    public List<TripType> getTripTypes() {
         return tripService.getAllTripTypes();
     }
 

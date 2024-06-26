@@ -2,6 +2,7 @@ package de.kirill.tripapi.service;
 
 import de.kirill.tripapi.Trip;
 import de.kirill.tripapi.TripRepository;
+import de.kirill.tripapi.TripType;
 import de.kirill.tripapi.TripTypeRepository;
 import de.kirill.tripapi.web.exception.TripNotFoundException;
 import lombok.AllArgsConstructor;
@@ -24,7 +25,7 @@ public class TripService {
         return tripRepository.findAll();
     }
 
-    public List<Trip> getAllTripTypes() {
-        return tripRepository.findAll();
+    public List<TripType> getAllTripTypes() {
+        return tripTypeRepository.findAll();
     }
 }

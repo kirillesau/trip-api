@@ -27,6 +27,8 @@ public class RestSecurityConfig {
                         .requestMatchers(PUT, "/trips/**").hasAnyRole("USER", "ADMIN")
                         .requestMatchers(DELETE, "/trips/**").hasAnyRole("USER", "ADMIN")
                         .requestMatchers(GET, "/trip-types/**").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers(GET, "/actuator/health").permitAll()
+                        .requestMatchers(GET, "/actuator/**").hasRole("ADMIN")
                         .anyRequest().denyAll())
                 .httpBasic(withDefaults())
                 .csrf(CsrfConfigurer::disable);

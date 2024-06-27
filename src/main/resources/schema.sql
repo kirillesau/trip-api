@@ -19,6 +19,7 @@ create table TRIP
     ADDITIONAL_INFO varchar(255),
     VALIDITY        varchar(255),
     PRICE           double precision,
+    FAVORITE        boolean,
     constraint FK_TRIP_TYPE foreign key (TYPE_ID) references TRIP_TYPE (ID)
 );
 

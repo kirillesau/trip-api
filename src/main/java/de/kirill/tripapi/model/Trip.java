@@ -34,6 +34,7 @@ public class Trip {
     private String additionalInfo;
     private String validity;
     private Double price;
+    private boolean favorite = false;
 
     @JsonManagedReference
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true)

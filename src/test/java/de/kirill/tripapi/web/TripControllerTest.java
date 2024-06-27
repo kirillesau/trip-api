@@ -30,7 +30,7 @@ public class TripControllerTest {
 
     @Test
     void getTrip() throws Exception {
-        given(tripService.getTrip(anyLong())).willReturn(new Trip(1L, "Trip 1", 0, new TripType(1, "test type"), "", "", "", "", null, 0.0, new ArrayList<>()));
+        given(tripService.getTrip(anyLong())).willReturn(new Trip(1L, "Trip 1", 0, new TripType(1, "test type"), "", "", "", "", null, 0.0, false, new ArrayList<>()));
         mockMvc.perform(get("/trips/1"))
                 .andDo(print())
                 .andExpect(status().isOk())

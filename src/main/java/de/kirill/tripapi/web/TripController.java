@@ -1,8 +1,8 @@
 package de.kirill.tripapi.web;
 
-import de.kirill.tripapi.Trip;
-import de.kirill.tripapi.TripBooking;
-import de.kirill.tripapi.TripType;
+import de.kirill.tripapi.model.Trip;
+import de.kirill.tripapi.model.TripBooking;
+import de.kirill.tripapi.model.TripType;
 import de.kirill.tripapi.service.TripService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,7 +1,7 @@
 package de.kirill.tripapi.web;
 
-import de.kirill.tripapi.Trip;
-import de.kirill.tripapi.TripType;
+import de.kirill.tripapi.model.Trip;
+import de.kirill.tripapi.model.TripType;
 import de.kirill.tripapi.service.TripService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

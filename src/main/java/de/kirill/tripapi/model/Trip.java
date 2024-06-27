@@ -1,4 +1,4 @@
-package de.kirill.tripapi;
+package de.kirill.tripapi.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;

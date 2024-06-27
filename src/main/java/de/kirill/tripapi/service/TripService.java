@@ -1,6 +1,11 @@
 package de.kirill.tripapi.service;
 
-import de.kirill.tripapi.*;
+import de.kirill.tripapi.model.Trip;
+import de.kirill.tripapi.model.TripBooking;
+import de.kirill.tripapi.model.TripType;
+import de.kirill.tripapi.model.repository.TripBookingRepository;
+import de.kirill.tripapi.model.repository.TripRepository;
+import de.kirill.tripapi.model.repository.TripTypeRepository;
 import de.kirill.tripapi.web.exception.TripNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

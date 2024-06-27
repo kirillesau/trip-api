@@ -1,15 +1,19 @@
 -- Insert into TRIP_TYPE
-INSERT INTO TRIP_TYPE (ID, NAME)
-VALUES (1, 'Type 1');
-INSERT INTO TRIP_TYPE (ID, NAME)
-VALUES (2, 'Type 2');
+INSERT INTO TRIP_TYPE (NAME)
+VALUES ('Type 1');
+INSERT INTO TRIP_TYPE (NAME)
+VALUES ('Type 2');
 
 -- Insert into TRIP
-INSERT INTO TRIP (ID, NAME, DISCOUNT, TYPE_ID, LINK, DESCRIPTION, PERFORMANCE, ADDITIONAL_INFO, VALIDITY, PRICE, FAVORITE)
-VALUES (1, 'Trip 1', 0, 1, 'Link 1', 'Description 1', 'Performance 1', 'Additional Info 1', 'valid on bla bla', 100.0, false);
+INSERT INTO TRIP (ID, NAME, DISCOUNT, TYPE_ID, LINK, DESCRIPTION, PERFORMANCE, ADDITIONAL_INFO, VALIDITY, PRICE,
+                  FAVORITE)
+VALUES (1, 'Trip 1', 0, 1, 'Link 1', 'Description 1', 'Performance 1', 'Additional Info 1', 'valid on bla bla', 100.0,
+        false);
 
-INSERT INTO TRIP (ID, NAME, DISCOUNT, TYPE_ID, LINK, DESCRIPTION, PERFORMANCE, ADDITIONAL_INFO, VALIDITY, PRICE, FAVORITE)
-VALUES (2, 'Trip 2', 50, 2, 'Link 2', 'Description 2', 'Performance 2', 'Additional Info 2', 'valid on blub', 200.0, true);
+INSERT INTO TRIP (ID, NAME, DISCOUNT, TYPE_ID, LINK, DESCRIPTION, PERFORMANCE, ADDITIONAL_INFO, VALIDITY, PRICE,
+                  FAVORITE)
+VALUES (2, 'Trip 2', 50, 2, 'Link 2', 'Description 2', 'Performance 2', 'Additional Info 2', 'valid on blub', 200.0,
+        true);
 
 -- Insert into TRIP_BOOKING
 INSERT INTO TRIP_BOOKING (BOOKING_DATE, TRIP_ID)

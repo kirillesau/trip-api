@@ -10,6 +10,7 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jakarta.persistence.CascadeType.ALL;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
@@ -22,8 +23,8 @@ public class Trip {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private long id;
-    private String name;
-    private int discount;
+    private String name = "";
+    private int discount = 0;
 
     @OneToOne
     @JoinColumn(name = "type_id", referencedColumnName = "id")
@@ -37,6 +38,6 @@ public class Trip {
     private boolean favorite = false;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "trip", cascade = ALL, orphanRemoval = true)
     private List<TripBooking> bookings = new ArrayList<>();
 }

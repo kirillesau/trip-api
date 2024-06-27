@@ -1,12 +1,10 @@
 package de.kirill.tripapi.service;
 
-import de.kirill.tripapi.Trip;
-import de.kirill.tripapi.TripRepository;
-import de.kirill.tripapi.TripType;
-import de.kirill.tripapi.TripTypeRepository;
+import de.kirill.tripapi.*;
 import de.kirill.tripapi.web.exception.TripNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,6 +14,7 @@ public class TripService {
 
     private TripRepository tripRepository;
     private TripTypeRepository tripTypeRepository;
+    private TripBookingRepository tripBookingRepository;
 
     public Trip getTrip(long id) {
         return tripRepository.findById(id).orElseThrow(() -> new TripNotFoundException(id));
@@ -27,5 +26,16 @@ public class TripService {
 
     public List<TripType> getAllTripTypes() {
         return tripTypeRepository.findAll();
+    }
+
+    @Transactional
+    public TripBooking createTripBooking(long tripId, TripBooking booking) {
+        booking.setTrip(getTrip(tripId));
+        return tripBookingRepository.save(booking);
+    }
+
+    @Transactional
+    public void deleteTripBooking(long tripId, long bookingId) {
+        tripBookingRepository.deleteByIdAndTripId(bookingId, tripId);
     }
 }

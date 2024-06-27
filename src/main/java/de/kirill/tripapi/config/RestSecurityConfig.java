@@ -12,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
-import static org.springframework.http.HttpMethod.GET;
+import static org.springframework.http.HttpMethod.*;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
@@ -24,6 +24,8 @@ public class RestSecurityConfig {
 
         http.authorizeHttpRequests((auth) -> auth
                         .requestMatchers(GET, "/trips/**").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers(PUT, "/trips/**").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers(DELETE, "/trips/**").hasAnyRole("USER", "ADMIN")
                         .requestMatchers(GET, "/trip-types/**").hasAnyRole("USER", "ADMIN")
                         .anyRequest().denyAll())
                 .httpBasic(withDefaults())

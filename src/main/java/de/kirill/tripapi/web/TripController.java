@@ -1,16 +1,17 @@
 package de.kirill.tripapi.web;
 
 import de.kirill.tripapi.Trip;
+import de.kirill.tripapi.TripBooking;
 import de.kirill.tripapi.TripType;
 import de.kirill.tripapi.service.TripService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 
-import static org.springframework.http.HttpStatus.OK;
+import static org.springframework.http.HttpStatus.*;
+import static org.springframework.web.servlet.support.ServletUriComponentsBuilder.fromCurrentRequestUri;
 
 @RestController
 public class TripController {
@@ -32,10 +33,28 @@ public class TripController {
     public List<Trip> getTrip() {
         return tripService.getAllTrips();
     }
+
+    @PutMapping("/trips/{tripId}/booking")
+    @ResponseStatus(CREATED)
+    public ResponseEntity<Void> addTripBooking(@PathVariable long tripId, @RequestBody TripBooking booking) {
+        var tripBooking = tripService.createTripBooking(tripId, booking);
+        return entityWithLocation(tripBooking.getId());
+    }
+
+    @DeleteMapping("/trips/{tripId}/booking/{bookingId}")
+    @ResponseStatus(ACCEPTED)
+    public void deleteTripBooking(@PathVariable long tripId, @PathVariable long bookingId) {
+        tripService.deleteTripBooking(tripId, bookingId);
+    }
+
     @GetMapping("/trip-types")
     @ResponseStatus(OK)
     public List<TripType> getTripTypes() {
         return tripService.getAllTripTypes();
     }
 
+    private ResponseEntity<Void> entityWithLocation(Object id) {
+        URI location = fromCurrentRequestUri().path("/{id}").buildAndExpand(id).toUri();
+        return ResponseEntity.created(location).build();
+    }
 }

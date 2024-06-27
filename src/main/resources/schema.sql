@@ -3,8 +3,9 @@ drop table if exists TRIP;
 drop table if exists TRIP_TYPE;
 create table TRIP_TYPE
 (
-    ID   SERIAL PRIMARY KEY,
-    NAME varchar(255) not null
+    ID    SERIAL PRIMARY KEY,
+    NAME  varchar(255) not null,
+    COLOR varchar(255)
 );
 
 create table TRIP

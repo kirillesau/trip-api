@@ -12,22 +12,22 @@ create table TRIP
 (
     ID              SERIAL PRIMARY KEY,
     NAME            varchar(255) not null,
-    DISCOUNT        integer default 0,
+    DISCOUNT        integer          default 0,
     TYPE_ID         integer      not null,
-    LINK            varchar(255),
-    DESCRIPTION     varchar(255),
-    PERFORMANCE     varchar(255),
-    ADDITIONAL_INFO varchar(255),
-    VALIDITY        varchar(255),
-    PRICE           double precision,
-    FAVORITE        boolean,
+    LINK            varchar(255)     default '',
+    DESCRIPTION     varchar(255)     default '',
+    PERFORMANCE     varchar(255)     default '',
+    ADDITIONAL_INFO varchar(255)     default '',
+    VALIDITY        varchar(255)     default '',
+    PRICE           double precision default 0,
+    FAVORITE        boolean          default false,
     constraint FK_TRIP_TYPE foreign key (TYPE_ID) references TRIP_TYPE (ID)
 );
 
 create table TRIP_BOOKING
 (
     ID           SERIAL PRIMARY KEY,
-    BOOKING_DATE date,
-    TRIP_ID      integer,
+    BOOKING_DATE date    not null default CURRENT_DATE,
+    TRIP_ID      integer not null,
     constraint FK_TRIP foreign key (TRIP_ID) references TRIP (ID)
 );

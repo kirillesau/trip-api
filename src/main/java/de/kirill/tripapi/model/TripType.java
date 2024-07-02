@@ -3,10 +3,8 @@ package de.kirill.tripapi.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.Table;
+import lombok.*;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -14,12 +12,14 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@RequiredArgsConstructor(staticName = "of")
+@Table(name = "trip_type")
 public class TripType {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private long id;
+    @NonNull
     private String name;
     private String color;
 }

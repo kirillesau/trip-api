@@ -86,7 +86,7 @@ public class TripControllerIT {
         assertThat(tripResponse.getBody().getBookings()).hasSize(2);
 
         // Füge eine Buchung hinzu
-        var newBooking = new HttpEntity<>(new TripBooking(-1, Date.valueOf("2021-12-24"), null));
+        var newBooking = new HttpEntity<>(TripBooking.of(Date.valueOf("2021-12-24")));
         var bookingResponse = authRestTemplate().exchange("/trips/1/booking", PUT, newBooking, Void.class);
         assertThat(bookingResponse.getStatusCode()).isEqualTo(CREATED);
         URI newBookingLocation = bookingResponse.getHeaders().getLocation();

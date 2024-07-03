@@ -12,6 +12,7 @@ create table TRIP
 (
     ID              SERIAL PRIMARY KEY,
     NAME            varchar(255) not null,
+    COUNTRY          varchar(255)     default '',
     DISCOUNT        integer          default 0,
     TYPE_ID         integer      not null,
     LINK            varchar(255)     default '',

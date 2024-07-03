@@ -23,6 +23,7 @@ public class Trip {
     private long id;
     @NonNull
     private String name;
+    private String country = "";
     private int discount = 0;
 
     @NonNull

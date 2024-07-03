@@ -10,18 +10,19 @@ create table TRIP_TYPE
 
 create table TRIP
 (
-    ID              SERIAL PRIMARY KEY,
-    NAME            varchar(255) not null,
-    COUNTRY          varchar(255)     default '',
-    DISCOUNT        integer          default 0,
-    TYPE_ID         integer      not null,
-    LINK            varchar(255)     default '',
-    DESCRIPTION     varchar(255)     default '',
-    PERFORMANCE     varchar(255)     default '',
-    ADDITIONAL_INFO varchar(255)     default '',
-    VALIDITY        varchar(255)     default '',
-    PRICE           double precision default 0,
-    FAVORITE        boolean          default false,
+    ID                SERIAL PRIMARY KEY,
+    NAME              varchar(255) not null,
+    CITY              varchar(255)     default '',
+    DISCOUNT          integer          default 0,
+    TYPE_ID           integer      not null,
+    LINK              varchar(255)     default '',
+    DESCRIPTION       varchar(255)     default '',
+    PERFORMANCE       varchar(255)     default '',
+    ADDITIONAL_INFO   varchar(255)     default '',
+    VALIDITY          varchar(255)     default '',
+    PRICE             double precision default 0,
+    ALTERNATIVE_PRICE varchar(255)     default '',
+    FAVORITE          boolean          default false,
     constraint FK_TRIP_TYPE foreign key (TYPE_ID) references TRIP_TYPE (ID)
 );
 

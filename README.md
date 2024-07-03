@@ -26,3 +26,22 @@ The example has been created for learning purposes only and is intended for priv
 docker build -t kirillesau/trip-api .
 docker run -p 8888:8080 -d --name trip-api kirillesau/trip-api
 ```
+
+## Add own data
+
+To add your own data, you can use the following options:
+
+### `application.properties`-File
+
+```properties
+spring.sql.init.data-locations=file:<path-to-your-file>
+```
+
+### Docker-Compose
+
+```yaml
+volumes:
+  - path/platform/data.sql:path/container/data.sql
+environment:
+  - SPRING_SQL_INIT_DATA-LOCATION: file:path/container/data.sql
+```

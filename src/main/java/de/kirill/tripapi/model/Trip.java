@@ -23,7 +23,7 @@ public class Trip {
     private long id;
     @NonNull
     private String name;
-    private String country = "";
+    private String city = "";
     private int discount = 0;
 
     @NonNull
@@ -36,6 +36,7 @@ public class Trip {
     private String additionalInfo = "";
     private String validity = "";
     private Double price = 0.0;
+    private String alternative_price = "";
     private boolean favorite = false;
 
     @JsonManagedReference
